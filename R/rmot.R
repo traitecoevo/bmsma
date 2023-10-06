@@ -10,8 +10,7 @@
 #' @examples
 #' mtcars
 #' rmot_lm(mtcars$mpg, mtcars$disp)
-rmot_lm <- function(x, y, ...) {
-  standata <- list(x = x, y = y, N = length(y))
-  out <- rstan::sampling(stanmodels$lm, data = standata, ...)
+rmot <- function(x, y, ...) {
+  out <- rstan::sampling(stanmodels$model, data = standata, ...)
   return(out)
 }
