@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # rmot
@@ -18,3 +19,15 @@ remotes::install_github("traitecoevo/rmot")
 ```
 
 ## Demo
+
+``` r
+rmot_model("linear") |>
+  rmot_assign_data(X = Loblolly$age,
+                   Y = Loblolly$height,
+                   N = nrow(Loblolly)) |>
+  rmot_run()
+```
+
+## Found a bug?
+
+Please lodge a GitHub Issue with details of the bug

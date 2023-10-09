@@ -1,0 +1,68 @@
+---
+title: "rmot"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rmot}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(rmot)
+```
+
+## Goal of package
+
+## Installation
+
+'rmot' is under active development, you can install the development version of 'rmot' from [GitHub](https://github.com/) with:
+
+```{r, eval=FALSE}
+# install.packages("remotes")
+remotes::install_github("traitecoevo/rmot")
+
+library(rmot)
+```
+
+## {rmot} supported models
+
+### Linear model
+
+```{r example}
+rmot_model("linear") |>
+  rmot_assign_data(X = Loblolly$age,
+                   Y = Loblolly$height,
+                   N = nrow(Loblolly)) |>
+  rmot_run()
+```
+
+### Constant Growth - Single Species
+
+```{r}
+# Create data
+true <- c(seq(from=1, by=2.5, length.out=7),
+          seq(from=2, by=2, length.out=7))
+y <- true + true*rnorm(n=14, 0, 0.02) + rnorm(n=14, 0, 0.2)
+
+# Configure model template
+cgs_output <- rmot_model("constant_single") |>
+  rmot_assign_data(N_obs = length(y),
+                   N_ind = 2,
+                   S_obs = y,
+                   census = rep(seq(from=1, to=7, by=1), times=2), #vector length N_obs
+                   census_interval = rep(5, times=length(y)), #Vector length N_obs
+                   id_factor = c(rep(1, times=7), rep(2, times=7)), #Vector length N_obs
+                   S_0_obs = y[c(1, 8)] #vector length N_ind
+                   )  |>
+  rmot_run()
+
+# Look at output
+cgs_output
+```
+
+

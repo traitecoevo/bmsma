@@ -7,8 +7,11 @@
 #' @export
 #'
 #' @examples
-#' mtcars
-#' rmot_lm(mtcars$mpg, mtcars$disp)
+#' rmot_model("linear") |>
+#'   rmot_assign_data(X = Loblolly$age,
+#'                  Y = Loblolly$height,
+#'                  N = nrow(Loblolly)) |>
+#'  rmot_run()
 rmot_run <- function(model_template, ...) {
 
   # Detect model
