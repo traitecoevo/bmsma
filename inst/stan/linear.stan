@@ -1,8 +1,8 @@
 // A linear model
 data {
   int<lower=1> N;
-  vector[N] x;
-  vector[N] y;
+  vector[N] X;
+  vector[N] Y;
 }
 parameters {
   real intercept;
@@ -12,5 +12,5 @@ parameters {
 model {
   // ... priors, etc.
 
-  y ~ normal(intercept + beta * x, sigma);
+  Y ~ normal(intercept + beta * X, sigma);
 }
