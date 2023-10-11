@@ -4,21 +4,27 @@
 # rmot
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/traitecoevo/rmot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/traitecoevo/rmot/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/traitecoevo/rmot/branch/master/graph/badge.svg)](https://app.codecov.io/gh/traitecoevo/rmot?branch=master)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The goal of ‘rmot’ is to …
 
 ## Installation
 
-You can install the development version of ‘rmot’ from
-[GitHub](https://github.com/) with:
+‘rmot’ is under active development. You can install the current
+developmental version of ‘rmot’ from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("traitecoevo/rmot")
 ```
 
-## Demo
+## Quick demo
 
 ``` r
 rmot_model("linear") |>
@@ -30,4 +36,7 @@ rmot_model("linear") |>
 
 ## Found a bug?
 
-Please lodge a GitHub Issue with details of the bug
+Please submit a [GitHub
+issue](https://github.com/traitecoevo/rmot/issues) with details of the
+bug. A [reprex](https://reprex.tidyverse.org/) would be particularly
+helpful with the bug-proofing process!
