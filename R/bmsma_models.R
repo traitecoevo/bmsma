@@ -1,4 +1,4 @@
-#' Select data configuration template for rmot supported model
+#' Select data configuration template for bmsma supported model
 #'
 #' @param model model name character string
 #'
@@ -6,17 +6,17 @@
 #' @export
 #'
 #' @examples
-#' rmot_model("linear")
+#' bmsma_model("linear")
 
-rmot_model <- function(model=NULL){
+bmsma_model <- function(model=NULL){
 
-  #TODO: Need a mechanism to check model requested in one that is supported by rmot
+  #TODO: Need a mechanism to check model requested in one that is supported by bmsma
 
   output <- switch(model,
-                   linear = rmot_lm(),
-                   constant_single = rmot_cgs())
+                   linear = bmsma_lm(),
+                   constant_single = bmsma_cgs())
 
-  class(output) <- "rmot_object"
+  class(output) <- "bmsma_object"
 
   return(output)
 }
@@ -25,7 +25,7 @@ rmot_model <- function(model=NULL){
 #' @keywords internal
 #' @noRd
 
-rmot_lm <- function(){
+bmsma_lm <- function(){
   list(X = NULL,
        Y = NULL,
        N = NULL,
@@ -36,7 +36,7 @@ rmot_lm <- function(){
 #' @keywords internal
 #' @noRd
 
-rmot_cgs <- function(){
+bmsma_cgs <- function(){
   list(N_obs = NULL,
        N_ind = NULL,
        S_obs = NULL,

@@ -1,11 +1,11 @@
-#' The 'rmot' package.
+#' The 'bmsma' package.
 #'
 #' @description A DESCRIPTION OF THE PACKAGE
 #'
 #' @docType package
-#' @name rmot-package
-#' @aliases rmot
-#' @useDynLib rmot, .registration = TRUE
+#' @name bmsma-package
+#' @aliases bmsma
+#' @useDynLib bmsma, .registration = TRUE
 #' @import methods
 #' @import Rcpp
 #' @importFrom rstan sampling
