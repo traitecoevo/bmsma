@@ -6,15 +6,15 @@
 #' @export
 #'
 #' @examples
-#' bmsma_model("linear")
+#' bmsma_model("ols")
 
 bmsma_model <- function(model=NULL){
 
   #TODO: Need a mechanism to check model requested in one that is supported by bmsma
 
   output <- switch(model,
-                   linear = bmsma_lm(),
-                   constant_single = bmsma_cgs())
+                   ols = bmsma_ols(),
+                   bsma = bmsma_bsma())
 
   class(output) <- "bmsma_object"
 
@@ -25,26 +25,22 @@ bmsma_model <- function(model=NULL){
 #' @keywords internal
 #' @noRd
 
-bmsma_lm <- function(){
+bmsma_ols <- function(){
   list(X = NULL,
        Y = NULL,
        N = NULL,
-       model = "linear")
+       model = "ols")
 }
 
 #' Data configuration template for constant growth single species model
 #' @keywords internal
 #' @noRd
 
-bmsma_cgs <- function(){
-  list(N_obs = NULL,
-       N_ind = NULL,
-       S_obs = NULL,
-       census = NULL,
-       census_interval = NULL,
-       id_factor = NULL,
-       S_0_obs = NULL,
-       model = "constant_single")
+bmsma_bsma <- function(){
+  list(
+       n_obs = NULL,
+       x = NULL,
+       model = "bsma")
 }
 
 

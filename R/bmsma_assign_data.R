@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples
-#' bmsma_model("linear") |> bmsma_assign_data(X = Loblolly$age, Y = Loblolly$height)
+#' bmsma_model("ols") |> bmsma_assign_data(X = Loblolly$age, Y = Loblolly$height)
 bmsma_assign_data <- function(model_template, ...){
   # Grab user expressions
   user_code <- rlang::enexprs(..., .check_assign = TRUE)

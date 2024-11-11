@@ -35,11 +35,37 @@ remotes::install_github("traitecoevo/bmsma")
 
 ## Quick demo
 
-```{r example}
-bmsma_model("linear") |>
+Fitting a classic linear regresion 
+```{r example-ols}
+library(bmsma)
+
+x <- 
+  bmsma_model("ols") |>
   bmsma_assign_data(X = Loblolly$age,
                    Y = Loblolly$height,
                    N = nrow(Loblolly)) |>
+  bmsma_run()
+```
+
+Fitting an SMA line
+```{r example-bsma}
+library(bmsma)
+
+x <- 
+  bmsma_model("bsma") |>
+  bmsma_assign_data(x = as.matrix(Loblolly[, c("age", "height")]),
+                   n_obs = nrow(Loblolly)) |>
+  bmsma_run()
+```
+
+Fitting a multi-level SMA line
+```{r example-bsma}
+library(bmsma)
+
+x <- 
+  bmsma_model("bmsma") |>
+  bmsma_assign_data(x = as.matrix(Loblolly[, c("age", "height")]),
+                   n_obs = nrow(Loblolly)) |>
   bmsma_run()
 ```
 

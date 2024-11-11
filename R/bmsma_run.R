@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples
-#' bmsma_model("linear") |>
+#' bmsma_model("ols") |>
 #'   bmsma_assign_data(X = Loblolly$age,
 #'                    Y = Loblolly$height,
 #'                    N = nrow(Loblolly)) |>
@@ -16,8 +16,8 @@ bmsma_run <- function(model_template, ...) {
 
   # Detect model
   out <- switch(model_template$model,
-         linear = rstan::sampling(stanmodels$linear, data = model_template, ...),
-         constant_single = rstan::sampling(stanmodels$constant_single, data = model_template, ...))
+         ols = rstan::sampling(stanmodels$ols, data = model_template, ...),
+         bsma = rstan::sampling(stanmodels$bsma, data = model_template, ...))
 
   return(out)
 }

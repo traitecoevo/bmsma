@@ -1,3 +1,4 @@
+
 // A linear model
 data {
   int<lower=1> N;
