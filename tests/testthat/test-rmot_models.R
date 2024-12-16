@@ -1,17 +1,18 @@
 test_that("Execution and output", {
-  expect_named(bmsma_model("linear"))
-  expect_type(bmsma_model("linear"), "list")
-  expect_visible(bmsma_model("linear"))
+  expect_named(bmsma_model("ols"))
+  expect_type(bmsma_model("ols"), "list")
+  expect_visible(bmsma_model("ols"))
 
-  expect_named(bmsma_model("constant_single"))
-  expect_type(bmsma_model("constant_single"), "list")
-  expect_visible(bmsma_model("constant_single"))
+  expect_named(bmsma_model("bsma"))
+  expect_type(bmsma_model("bsma"), "list")
+  expect_visible(bmsma_model("bsma"))
 
-  lm_test <- bmsma_model("linear") |>
+  suppressWarnings(lm_test <- bmsma_model("ols") |>
     bmsma_assign_data(X = Loblolly$age,
                      Y = Loblolly$height,
                      N = nrow(Loblolly)) |>
     bmsma_run(chains = 2, iter = 300, verbose = FALSE, show_messages = FALSE)
+  )
 
   expect_visible(lm_test)
 

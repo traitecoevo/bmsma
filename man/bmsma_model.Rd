@@ -16,5 +16,5 @@ named list that matches Stan model parameters
 Select data configuration template for bmsma supported model
 }
 \examples{
-bmsma_model("linear")
+bmsma_model("ols")
 }

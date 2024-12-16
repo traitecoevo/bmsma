@@ -18,7 +18,7 @@ Stanfit model output
 Run a linear model in Stan
 }
 \examples{
-bmsma_model("linear") |>
+bmsma_model("ols") |>
   bmsma_assign_data(X = Loblolly$age,
                    Y = Loblolly$height,
                    N = nrow(Loblolly)) |>

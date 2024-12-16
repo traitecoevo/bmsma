@@ -1,8 +1,6 @@
 #' The 'bmsma' package.
 #'
 #' @description A DESCRIPTION OF THE PACKAGE
-#'
-#' @docType package
 #' @name bmsma-package
 #' @aliases bmsma
 #' @useDynLib bmsma, .registration = TRUE
@@ -14,5 +12,10 @@
 #'
 #' @references
 #' Stan Development Team (NA). RStan: the R interface to Stan. R package version 2.26.23. https://mc-stan.org
-#'
+
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
 NULL

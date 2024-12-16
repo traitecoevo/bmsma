@@ -18,5 +18,5 @@ updated named list with your data assigned to Stan model parameters
 Assign data to template
 }
 \examples{
-bmsma_model("linear") |> bmsma_assign_data(X = Loblolly$age, Y = Loblolly$height)
+bmsma_model("ols") |> bmsma_assign_data(X = Loblolly$age, Y = Loblolly$height)
 }
